@@ -1,4 +1,6 @@
-﻿namespace WebApi.Models
+﻿using WebApi.Controllers;
+
+namespace WebApi.Models
 {
     public class Car
     {
@@ -9,5 +11,7 @@
         public string Price { get; set; }
 
         public string Image { get; set; }
+
+        public Beacon Beacon { get; set; }
     }
 }
