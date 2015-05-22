@@ -26,4 +26,5 @@ dependencies {
     apt 'com.squareup.dagger:dagger-compiler:1.2.2'
     compile 'com.squareup.dagger:dagger:1.2.2'
     compile 'org.altbeacon:android-beacon-library:2.1.4'
+    compile 'com.google.code.gson:gson:2.3.1'
 }

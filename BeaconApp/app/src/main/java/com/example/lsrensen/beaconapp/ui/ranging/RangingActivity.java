@@ -12,12 +12,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.lsrensen.beaconapp.R;
+import com.google.gson.Gson;
 
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
+import org.json.JSONObject;
 
 public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
@@ -62,6 +64,9 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
+                Collection<com.example.lsrensen.beaconapp.ui.ranging.Beacon> mappedBeacons = Map(beacons);
+                Gson gson = new Gson();
+                String json = gson.toJson(mappedBeacons);
                 adapter.setDataFromAnyThread(new ArrayList<Beacon>(beacons));
             }
         });
@@ -70,5 +75,20 @@ public class RangingActivity extends Activity implements BeaconConsumer {
             beaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
         } catch (RemoteException e) {
         }
+    }
+
+    private Collection<com.example.lsrensen.beaconapp.ui.ranging.Beacon> Map(Collection<Beacon> beacons){
+        Collection<com.example.lsrensen.beaconapp.ui.ranging.Beacon> mapped = new ArrayList<com.example.lsrensen.beaconapp.ui.ranging.Beacon>();
+        for(final Beacon beacon : beacons){
+            mapped.add(new com.example.lsrensen.beaconapp.ui.ranging.Beacon(){{
+                id1 = beacon.getId1().toString();
+                id2 = beacon.getId2().toString();
+                id3 = beacon.getId3().toString();
+                range = beacon.getDistance();
+            }
+            });
+        }
+
+        return mapped;
     }
 }

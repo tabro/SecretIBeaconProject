@@ -59,7 +59,7 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
 
     @Override
     public void didEnterRegion(Region arg0) {
-        // In this example, this class sends a notification to the user whenever a BeaconRowItem
+        // In this example, this class sends a notification to the user whenever a Beacon
         // matching a Region (defined above) are first seen.
         Log.d(TAG, "did enter region.");
         if (!haveDetectedBeaconsSinceBoot) {
@@ -107,7 +107,7 @@ public class BeaconReferenceApplication extends Application implements Bootstrap
     private void sendNotification() {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this)
-                        .setContentTitle("BeaconRowItem Reference Application")
+                        .setContentTitle("Beacon Reference Application")
                         .setContentText("An beacon is nearby.")
                         .setSmallIcon(R.drawable.ic_launcher);
 

@@ -11,15 +11,13 @@ import android.widget.TextView;
 
 import com.example.lsrensen.beaconapp.R;
 
-import org.altbeacon.beacon.Beacon;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class BeaconAdapter extends BaseAdapter
 {
     final Handler mHandler = new Handler();
-    ArrayList<BeaconRowItem> items = new ArrayList<BeaconRowItem>();
+    ArrayList<Beacon> items = new ArrayList<Beacon>();
     private Context context;
 
     public BeaconAdapter(Context context) {
@@ -50,8 +48,8 @@ public class BeaconAdapter extends BaseAdapter
         TextView secondLine = (TextView) rowView.findViewById(R.id.secondLine);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
-        BeaconRowItem beacon = (BeaconRowItem)getItem(position);
-        firstLine.setText("Id1: " + beacon.id.toString());
+        Beacon beacon = (Beacon)getItem(position);
+        firstLine.setText("Id1: " + beacon.id1.toString());
         if(beacon.range != null){
             secondLine.setText("Range: " + new DecimalFormat("#.00").format(beacon.range));
         }
@@ -59,7 +57,7 @@ public class BeaconAdapter extends BaseAdapter
             secondLine.setText("Range: N/A");
         }
         // change the icon for Windows and iPhone
-        boolean isReachable = beacon.isReachable;
+        boolean isReachable = true;
         if (isReachable) {
             imageView.setImageResource(R.drawable.ok);
         } else {
@@ -69,31 +67,31 @@ public class BeaconAdapter extends BaseAdapter
         return rowView;
     }
 
-    public void setDataFromAnyThread(final ArrayList<Beacon> beacons) {
+    public void setDataFromAnyThread(final ArrayList<org.altbeacon.beacon.Beacon> beacons) {
         // Enqueue work on mHandler to change the data on
         // the main thread.
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                for(BeaconRowItem beacon : items){
-                    beacon.isReachable = false;
+                for(Beacon beacon : items){
+                    //beacon.isReachable = false;
                     beacon.range = null;
                 }
 
-                for(final Beacon beacon : beacons){
+                for(final org.altbeacon.beacon.Beacon beacon : beacons){
                     boolean foundRowItem = false;
-                    for (BeaconRowItem beaconRowItem : items){
-                        if(beaconRowItem.id.equals(beacon.toString())){
-                            beaconRowItem.isReachable = true;
+                    for (Beacon beaconRowItem : items){
+                        if(beaconRowItem.id1.equals(beacon.toString())){
+                            //beaconRowItem.isReachable = true;
                             beaconRowItem.range = beacon.getDistance();
                             foundRowItem = true;
                         }
                     }
 
                     if(!foundRowItem){
-                        items.add(new BeaconRowItem(){{
-                            isReachable = true;
-                            id = beacon.toString();
+                        items.add(new Beacon(){{
+                            //isReachable = true;
+                            id1 = beacon.toString();
                             range = beacon.getDistance();
                         }});
                     }
