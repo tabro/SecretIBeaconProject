@@ -1,4 +1,4 @@
-package com.example.lsrensen.beaconapp.http;
+package com.example.lsrensen.beaconapp.rest;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
