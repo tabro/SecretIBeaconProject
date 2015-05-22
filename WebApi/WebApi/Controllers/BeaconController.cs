@@ -14,7 +14,8 @@ namespace WebApi.Controllers
             {
                 new
                 {
-                    Name = "Fed Bil",
+                    Name = "Pussy Wagon",
+                    Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659"
                 }
             };
         }
@@ -25,5 +26,6 @@ namespace WebApi.Controllers
         public Guid Id1 { get; set; }
         public int Id2 { get; set; }
         public int Id3 { get; set; }
+        public double Range { get; set; }
     }
 }
