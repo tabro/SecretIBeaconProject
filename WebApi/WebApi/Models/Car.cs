@@ -8,6 +8,6 @@
 
         public string Price { get; set; }
 
-        public byte[] Picture { get; set; }
+        public string Image { get; set; }
     }
 }
