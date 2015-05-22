@@ -4,19 +4,35 @@ using System.Web.Http;
 
 namespace WebApi.Controllers
 {
+    using Models;
+
     public class BeaconController : ApiController
     {
         [HttpPost]
         [Route("Beacon")]
-        public dynamic Post(IEnumerable<Beacon> data)
+        public IEnumerable<Car> Post(IEnumerable<Beacon> data)
         {
-            return new List<dynamic>
+            return new List<Car>
             {
-                new
+                new Car
                 {
-                    Name = "Pussy Wagon",
-                    Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659"
+                    Make = "Audi",
+                    Model = "R8",
+                    Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659",
+                    Price = "Cheap for you my friend"
                 }
+            };
+        }
+
+        [HttpGet]
+        [Route("CarDetails")]
+        public dynamic Get(Guid id)
+        {
+            return new
+            {
+                FuelType = "Gasolin",
+                Kml = "20.3",
+                FinanceOffer = "3000"
             };
         }
     }
@@ -26,6 +42,5 @@ namespace WebApi.Controllers
         public Guid Id1 { get; set; }
         public int Id2 { get; set; }
         public int Id3 { get; set; }
-        public double Range { get; set; }
     }
 }
