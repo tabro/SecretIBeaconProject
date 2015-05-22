@@ -8,9 +8,15 @@ namespace WebApi.Controllers
     {
         [HttpPost]
         [Route("Beacon")]
-        public void Post(IEnumerable<Beacon> data)
+        public dynamic Post(IEnumerable<Beacon> data)
         {
-            
+            return new List<dynamic>
+            {
+                new
+                {
+                    Name = "Fed Bil",
+                }
+            };
         }
     }
 
