@@ -25,3 +25,16 @@ proguard/
 
 # Log Files
 *.log
+
+
+*.dll
+*.exe
+
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+webapi/packages/
