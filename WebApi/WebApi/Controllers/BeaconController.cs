@@ -23,6 +23,18 @@ namespace WebApi.Controllers
                 }
             };
         }
+
+        [HttpGet]
+        [Route("CarDetails")]
+        public dynamic Get(Guid id)
+        {
+            return new
+            {
+                FuelType = "Gasolin",
+                Kml = "20.3",
+                FinanceOffer = "3000"
+            };
+        }
     }
 
     public class Beacon
