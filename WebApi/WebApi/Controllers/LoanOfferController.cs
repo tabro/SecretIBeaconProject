@@ -15,7 +15,6 @@ namespace WebApi.Controllers
                 MonthlyCost = 3197,
                 DurationInMonths = 48,
                 Prepayment = 12000,
-
             };
         }
     }
