@@ -18,7 +18,7 @@ namespace WebApi.Controllers
                 {
                     Make = "Audi",
                     Model = "R8",
-                    Picture = null,
+                    Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659",
                     Price = "Cheap for you my friend"
                 };
             };
