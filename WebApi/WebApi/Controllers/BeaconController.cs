@@ -4,18 +4,23 @@ using System.Web.Http;
 
 namespace WebApi.Controllers
 {
+    using Models;
+
     public class BeaconController : ApiController
     {
         [HttpPost]
         [Route("Beacon")]
-        public dynamic Post(IEnumerable<Beacon> data)
+        public IEnumerable<Car> Post(IEnumerable<Beacon> data)
         {
-            return new List<dynamic>
+            return new List<Car>
             {
-                new
+                new Car
                 {
-                    Name = "Fed Bil",
-                }
+                    Make = "Audi",
+                    Model = "R8",
+                    Picture = null,
+                    Price = "Cheap for you my friend"
+                };
             };
         }
     }
