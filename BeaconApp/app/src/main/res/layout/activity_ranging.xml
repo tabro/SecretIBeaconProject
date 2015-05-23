@@ -11,9 +11,11 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:background="@drawable/border"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="5dip">
 
             <ImageView
                 android:id="@+id/carImage"
@@ -76,6 +78,8 @@
             <RelativeLayout
                 android:layout_below="@id/prosConsList"
                 android:layout_width="fill_parent"
+                android:background="@drawable/lowerhalf"
+                android:clipToPadding="false"
                 android:layout_height="wrap_content">
 
                 <TextView
