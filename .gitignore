@@ -29,6 +29,7 @@ proguard/
 
 *.dll
 *.exe
+*.suo
 
 
 [Dd]ebug/
