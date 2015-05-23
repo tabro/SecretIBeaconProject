@@ -15,7 +15,7 @@ namespace WebApi.Data
                 {
                     Make = "Volkswagen",
                     Model = "Passat",
-                    Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659",
+                    Image = "http://hindimazza.com/wp-content/uploads/2015/04/car.jpg",
                     Price = "90.000",
                     Beacon = new Beacon
                     {
@@ -33,12 +33,19 @@ namespace WebApi.Data
                     {
                         "Low cost of maintenance"  
                     },
-                    CarOffer = new CarOffer
+                    CarFinance = new CarFinance()
                     {
-                        LoanPayment = 2000,
-                        LoanDownPayment = 15000,
-                        LeasePayment = 1000,
-                        LeaseDownPayment = 10000
+                        MonthlyPayment = 2000,
+                        DownPayment = 15000,
+                        Aaop = 6.98M,
+                        YourCarIsDownPayment = true,
+                        Period = 60
+                    },
+                    CarLease = new CarLease
+                    {
+                        MonthlyPayment = 1500,
+                        DownPayment = 10000,
+                        Period = 36
                     }
                 },
                 new Car
@@ -46,7 +53,7 @@ namespace WebApi.Data
                     Make = "Bmw",
                     Model = "520i",
                     Price = "100.000",
-                    Image = "http://www.lamarihuana.com/wp-content/uploads/2012/05/funny-aeroplane-car.jpg",
+                    Image = "http://acidcow.com/pics/20130920/funny_car_themed_photos_01.jpg",
                     Beacon = new Beacon()
                     {
                         Id1 = Guid.Parse("f7826da6-4fa2-4e98-8024-bc5b71e0893e"),
@@ -59,15 +66,21 @@ namespace WebApi.Data
                     },
                     Pros = new List<string>
                     {
-                        "Only 1 registered prior owner in 'National Motor Register'",
-                        "Improved fuel economy compared to currect 'Volvo Amazone' (Est. 225 kr/month)"
+                        "Improved fuel economy compared to current 'Volvo Amazone' (Est. 225 kr/month)"
                     },
-                    CarOffer = new CarOffer
+                    CarFinance = new CarFinance
                     {
-                        LoanPayment = 2500,
-                        LoanDownPayment = 20000,
-                        LeasePayment = 1500,
-                        LeaseDownPayment = 15000
+                        MonthlyPayment = 2500,
+                        DownPayment = 20000,
+                        Aaop = 7.55M,
+                        YourCarIsDownPayment = false,
+                        Period = 84
+                    },
+                    CarLease = new CarLease
+                    {
+                        MonthlyPayment = 1500,
+                        DownPayment = 12000,
+                        Period = 24
                     }
                 },
                 //new Car

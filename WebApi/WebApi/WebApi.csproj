@@ -94,7 +94,8 @@
     </Compile>
     <Compile Include="Helpers\LocationHelper.cs" />
     <Compile Include="Models\Car.cs" />
-    <Compile Include="Models\CarOffer.cs" />
+    <Compile Include="Models\CarFinance.cs" />
+    <Compile Include="Models\CarLease.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Scripts\0001 CreateSchema.sql" />

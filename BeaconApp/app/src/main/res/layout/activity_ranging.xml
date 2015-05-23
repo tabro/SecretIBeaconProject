@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     tools:context=".RangingActivity"
     android:background="@drawable/border"
-    android:padding="12dp">
+    android:padding="12dp"
+    style="@style/Activity">
 
     <ImageView
         android:id="@+id/carImage"
