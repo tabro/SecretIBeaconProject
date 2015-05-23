@@ -32,13 +32,11 @@ import org.altbeacon.beacon.Region;
 public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private ListView prosList;
-    private ListView consList;
-    private ProsConsAdapter prosAdapter;
-    private ProsConsAdapter consAdapter;
+    private ListView prosConsView;
     private ImageView image;
     private TextView makeAndModelTextView;
     private TextView priceTextView;
+    private ProsConsAdapter prosConsAdapter;
     private Handler handler;
 
     @Override
@@ -53,12 +51,9 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         makeAndModelTextView = (TextView)findViewById(R.id.makeAndModel);
         priceTextView = (TextView)findViewById(R.id.price);
         image = (ImageView)findViewById(R.id.carImage);
-        prosAdapter = new ProsConsAdapter(this, true);
-        consAdapter = new ProsConsAdapter(this, false);
-        prosList = (ListView) findViewById(R.id.prosList);
-        prosList.setAdapter(prosAdapter);
-        consList = (ListView) findViewById(R.id.consList);
-        consList.setAdapter(consAdapter);
+        prosConsAdapter = new ProsConsAdapter(this);
+        prosConsView = (ListView) findViewById(R.id.prosConsList);
+        prosConsView.setAdapter(prosConsAdapter);
         handler = new Handler();
     }
 
@@ -108,8 +103,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                         }
                     });
 
-                    prosAdapter.setDataFromAnyThread(closestCar.getPros());
-                    consAdapter.setDataFromAnyThread(closestCar.getCons());
+                    prosConsAdapter.setDataFromAnyThread(closestCar.getPros(), closestCar.getCons());
                 } catch (
                         IOException e
                         ) {

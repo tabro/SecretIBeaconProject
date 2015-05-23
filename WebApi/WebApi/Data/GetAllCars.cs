@@ -32,6 +32,13 @@ namespace WebApi.Data
                     Pros = new List<string>
                     {
                         "Low cost of maintenance"  
+                    },
+                    CarOffer = new CarOffer
+                    {
+                        LoanPayment = 2000,
+                        LoanDownPayment = 15000,
+                        LeasePayment = 1000,
+                        LeaseDownPayment = 10000
                     }
                 },
                 new Car
@@ -53,6 +60,13 @@ namespace WebApi.Data
                     Pros = new List<string>
                     {
                         "Improved fuel economy compared to current 'Volvo Amazone' (Est. 225 kr/month)"
+                    },
+                    CarOffer = new CarOffer
+                    {
+                        LoanPayment = 2500,
+                        LoanDownPayment = 20000,
+                        LeasePayment = 1500,
+                        LeaseDownPayment = 15000
                     }
                 },
                 //new Car
