@@ -38,12 +38,14 @@ namespace WebApi.Data
                         MonthlyPayment = 2000,
                         DownPayment = 15000,
                         Aaop = 6.98M,
-                        YourCarIsDownPayment = true
+                        YourCarIsDownPayment = true,
+                        Period = 60
                     },
                     CarLease = new CarLease
                     {
                         MonthlyPayment = 1500,
-                        DownPayment = 10000
+                        DownPayment = 10000,
+                        Period = 36
                     }
                 },
                 new Car
@@ -71,12 +73,14 @@ namespace WebApi.Data
                         MonthlyPayment = 2500,
                         DownPayment = 20000,
                         Aaop = 7.55M,
-                        YourCarIsDownPayment = false
+                        YourCarIsDownPayment = false,
+                        Period = 84
                     },
                     CarLease = new CarLease
                     {
                         MonthlyPayment = 1500,
-                        DownPayment = 12000
+                        DownPayment = 12000,
+                        Period = 24
                     }
                 },
                 //new Car

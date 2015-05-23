@@ -5,5 +5,7 @@
         public int MonthlyPayment { get; set; }
 
         public int DownPayment { get; set; }
+
+        public int Period { get; set; }
     }
 }
