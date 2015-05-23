@@ -33,12 +33,17 @@ namespace WebApi.Data
                     {
                         "Low cost of maintenance"  
                     },
-                    CarOffer = new CarOffer
+                    CarFinance = new CarFinance()
                     {
-                        LoanPayment = 2000,
-                        LoanDownPayment = 15000,
-                        LeasePayment = 1000,
-                        LeaseDownPayment = 10000
+                        MonthlyPayment = 2000,
+                        DownPayment = 15000,
+                        Aaop = 6.98M,
+                        YourCarIsDownPayment = true
+                    },
+                    CarLease = new CarLease
+                    {
+                        MonthlyPayment = 1500,
+                        DownPayment = 10000
                     }
                 },
                 new Car
@@ -61,12 +66,17 @@ namespace WebApi.Data
                     {
                         "Improved fuel economy compared to current 'Volvo Amazone' (Est. 225 kr/month)"
                     },
-                    CarOffer = new CarOffer
+                    CarFinance = new CarFinance
                     {
-                        LoanPayment = 2500,
-                        LoanDownPayment = 20000,
-                        LeasePayment = 1500,
-                        LeaseDownPayment = 15000
+                        MonthlyPayment = 2500,
+                        DownPayment = 20000,
+                        Aaop = 7.55M,
+                        YourCarIsDownPayment = false
+                    },
+                    CarLease = new CarLease
+                    {
+                        MonthlyPayment = 1500,
+                        DownPayment = 12000
                     }
                 },
                 //new Car
