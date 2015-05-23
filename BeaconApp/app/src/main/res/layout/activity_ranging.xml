@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RangingActivity" >
+    tools:context=".RangingActivity"
+    style="@style/Activity">
 
     <ImageView
         android:id="@+id/carImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:layout_margin="6dip"
      />
 
     <TextView
@@ -19,8 +19,7 @@
         android:layout_below="@id/carImage"
         android:gravity="center_vertical"
         android:text="Example application"
-        android:textStyle="bold"
-        android:textSize="18sp" />
+        style="@style/Header"/>
 
     <TextView
         android:id="@+id/price"
@@ -30,7 +29,7 @@
         android:ellipsize="marquee"
         android:singleLine="true"
         android:text="Description"
-        android:textSize="16sp" />
+        style="@style/Text" />
 
     <ListView
         android:id="@+id/prosConsList"
