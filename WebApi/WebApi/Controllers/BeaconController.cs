@@ -24,8 +24,11 @@ namespace WebApi.Controllers
             foreach (var d in data.OrderBy(b => b.Range))
             {
                 var carOrDefault = filteredCars.SingleOrDefault(c => c.Beacon.Equals(d));
-                if(carOrDefault != null)
+                if (carOrDefault != null)
+                {
+                    carOrDefault.Beacon.Range = d.Range;
                     result.Add(carOrDefault);
+                }
             }
 
             return result;
