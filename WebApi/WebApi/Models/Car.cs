@@ -11,6 +11,10 @@ namespace WebApi.Models
 
         public string Price { get; set; }
 
+        public decimal Kml { get; set; }
+
+        public int CarKm { get; set; }
+
         public string Image { get; set; }
 
         public Beacon Beacon { get; set; }
