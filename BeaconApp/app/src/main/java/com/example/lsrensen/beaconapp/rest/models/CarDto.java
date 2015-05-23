@@ -1,10 +1,15 @@
 package com.example.lsrensen.beaconapp.rest.models;
 
+import java.util.ArrayList;
+
 public class CarDto {
     private String image;
     private String make;
     private String model;
     private String price;
+    private BeaconDto beacon;
+    private ArrayList<String> cons;
+    private ArrayList<String> pros;
 
     public CarDto(){
     }
@@ -46,5 +51,29 @@ public class CarDto {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public BeaconDto getBeacon() {
+        return beacon;
+    }
+
+    public void setBeacon(BeaconDto beaconDto) {
+        this.beacon = beaconDto;
+    }
+
+    public ArrayList<String> getCons() {
+        return cons;
+    }
+
+    public void setCons(ArrayList<String> cons) {
+        this.cons = cons;
+    }
+
+    public ArrayList<String> getPros() {
+        return pros;
+    }
+
+    public void setPros(ArrayList<String> pros) {
+        this.pros = pros;
     }
 }

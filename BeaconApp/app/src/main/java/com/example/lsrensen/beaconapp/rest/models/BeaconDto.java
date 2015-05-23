@@ -5,18 +5,20 @@ package com.example.lsrensen.beaconapp.rest.models;
  */
 public class BeaconDto {
     private String id1;
-
     private int id2;
     private int id3;
+
+    private double range;
 
     public BeaconDto() {
 
     }
 
-    public BeaconDto(String id1, int id2, int id3) {
+    public BeaconDto(String id1, int id2, int id3, double range) {
         this.id1 = id1;
         this.id2 = id2;
         this.id3 = id3;
+        this.range = range;
     }
 
     public int getId2() {
@@ -50,5 +52,13 @@ public class BeaconDto {
 
         BeaconDto other = (BeaconDto)o;
         return id1 != null && id1.equals(other.id1) && id2 == other.id2 && id3 == other.id3;
+    }
+
+    public double getRange() {
+        return range;
+    }
+
+    public void setRange(double range) {
+        this.range = range;
     }
 }

@@ -10,12 +10,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
+import android.util.Log;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.lsrensen.beaconapp.R;
 import com.example.lsrensen.beaconapp.rest.HttpHelper;
 import com.example.lsrensen.beaconapp.rest.models.BeaconDto;
 import com.example.lsrensen.beaconapp.rest.models.CarDto;
+import com.example.lsrensen.beaconapp.ui.helpers.DownloadImageTask;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -28,8 +32,13 @@ import org.altbeacon.beacon.Region;
 public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private ListView listView;
-    private CarDtoAdapter adapter;
+    private ListView prosList;
+    private ListView consList;
+    private ProsConsAdapter prosAdapter;
+    private ProsConsAdapter consAdapter;
+    private ImageView image;
+    private TextView makeAndModelTextView;
+    private TextView priceTextView;
     private Handler handler;
 
     @Override
@@ -37,12 +46,19 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranging);
 
-        beaconManager.setForegroundBetweenScanPeriod(5000);
+       beaconManager.setForegroundBetweenScanPeriod(200);
+       beaconManager.setForegroundScanPeriod(2000);
         beaconManager.bind(this);
 
-        adapter = new CarDtoAdapter(this);
-        listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(adapter);
+        makeAndModelTextView = (TextView)findViewById(R.id.makeAndModel);
+        priceTextView = (TextView)findViewById(R.id.price);
+        image = (ImageView)findViewById(R.id.carImage);
+        prosAdapter = new ProsConsAdapter(this, true);
+        consAdapter = new ProsConsAdapter(this, false);
+        prosList = (ListView) findViewById(R.id.prosList);
+        prosList.setAdapter(prosAdapter);
+        consList = (ListView) findViewById(R.id.consList);
+        consList.setAdapter(consAdapter);
         handler = new Handler();
     }
 
@@ -73,13 +89,27 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                     Collection<BeaconDto> mappedBeacons = Map(beacons);
                     Gson gson = new Gson();
                     String json = gson.toJson(mappedBeacons);
-                    String carsJson = HttpHelper.post("http://ibeaconisdabomb.azurewebsites.net/Beacon", json);
-
+                    String carsJson = HttpHelper.readURL("http://ibeaconisdabomb.azurewebsites.net/Beacon", json, "POST");
+                    Log.e("test", json);
                     Type listType = new TypeToken<ArrayList<CarDto>>(){}.getType();
-
                     ArrayList<CarDto> cars = gson.fromJson(carsJson, listType);
 
-                    adapter.setDataFromAnyThread(cars);
+                    if(cars.size() == 0)
+                        return;
+
+                    final CarDto closestCar = cars.get(0);
+                    new DownloadImageTask(image).execute(closestCar.getImage());
+
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            makeAndModelTextView.setText(closestCar.getMake() + " " + closestCar.getModel());
+                            priceTextView.setText(closestCar.getPrice());
+                        }
+                    });
+
+                    prosAdapter.setDataFromAnyThread(closestCar.getPros());
+                    consAdapter.setDataFromAnyThread(closestCar.getCons());
                 } catch (
                         IOException e
                         ) {
@@ -101,6 +131,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
             mappedBeacon.setId1(beacon.getId1().toString());
             mappedBeacon.setId2(beacon.getId2().toInt());
             mappedBeacon.setId3(beacon.getId3().toInt());
+            mappedBeacon.setRange(beacon.getDistance());
 
             mapped.add(mappedBeacon);
         }

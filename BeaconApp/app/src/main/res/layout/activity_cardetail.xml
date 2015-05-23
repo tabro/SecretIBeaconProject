@@ -1,8 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RangingActivity" >
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="12dip"
+    android:background="@drawable/border">
 
     <ImageView
         android:id="@+id/carImage"
@@ -32,16 +32,34 @@
         android:text="Description"
         android:textSize="16sp" />
 
-    <ListView
-        android:id="@+id/prosList"
+    <TextView
+        android:id="@+id/fuelType"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/price" />
+        android:layout_below="@id/price"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="FuelType"
+        android:textSize="16sp" />
 
-    <ListView
-        android:id="@+id/consList"
+    <TextView
+        android:id="@+id/milage"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/prosList" />
-    
-</RelativeLayout>
+        android:layout_below="@id/fuelType"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Milage"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/financeOffer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/milage"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Milage"
+        android:textSize="16sp" />
+
+</RelativeLayout> 

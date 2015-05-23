@@ -10,20 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lsrensen.beaconapp.R;
-import com.example.lsrensen.beaconapp.rest.models.BeaconDto;
 import com.example.lsrensen.beaconapp.rest.models.CarDto;
 import com.example.lsrensen.beaconapp.ui.helpers.DownloadImageTask;
 
 import java.util.ArrayList;
 
-public class CarDtoAdapter extends BaseAdapter
+public class ProsConsAdapter extends BaseAdapter
 {
     final Handler mHandler = new Handler();
-    ArrayList<CarDto> items = new ArrayList<CarDto>();
+    ArrayList<String> items = new ArrayList<String>();
     private Context context;
+    private boolean isPros;
 
-    public CarDtoAdapter(Context context) {
+    public ProsConsAdapter(Context context, boolean isPros) {
         this.context = context;
+        this.isPros = isPros;
     }
 
     @Override
@@ -45,27 +46,29 @@ public class CarDtoAdapter extends BaseAdapter
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView = inflater.inflate(R.layout.listitem_cardto, parent, false);
-        TextView makeAndModelLine = (TextView) rowView.findViewById(R.id.makeAndModel);
-        TextView priceLine = (TextView) rowView.findViewById(R.id.price);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.carImage);
+        View rowView = inflater.inflate(R.layout.listitem_proscons, parent, false);
+        TextView description = (TextView) rowView.findViewById(R.id.description);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.statusImage);
 
-        CarDto car = (CarDto)getItem(position);
-        makeAndModelLine.setText("" + car.getMake() + " " + car.getModel());
-        priceLine.setText(car.getPrice());
+        String desciption = (String)getItem(position);
+        description.setText(desciption);
 
-        new DownloadImageTask(imageView).execute(car.getImage());
+        if(isPros)
+            imageView.setImageResource(R.drawable.ok);
+        else
+            imageView.setImageResource(R.drawable.notok);
 
         return rowView;
     }
 
-    public void setDataFromAnyThread(final ArrayList<CarDto> cars) {
+    public void setDataFromAnyThread(final ArrayList<String> prosOrCons) {
         // Enqueue work on mHandler to change the data on
         // the main thread.
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                items = cars;
+                if(prosOrCons != null)
+                    items = prosOrCons;
                 notifyDataSetChanged();
             }
         });
