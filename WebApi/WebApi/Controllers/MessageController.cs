@@ -12,7 +12,7 @@ namespace WebApi.Controllers
         [Route("Message")]
         public void Post(string message)
         {
-                    Storage.Add(message);
+             Storage.Add(message);
         }
 
         [HttpGet]

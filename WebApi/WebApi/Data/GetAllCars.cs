@@ -13,15 +13,19 @@ namespace WebApi.Data
             {
                 new Car
                 {
-                    Make = "Audi",
-                    Model = "R8",
+                    Make = "Volkswagen",
+                    Model = "Passat",
                     Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659",
-                    Price = "Cheap for you my friend",
-                    Beacon = new Beacon()
+                    Price = "90.000",
+                    Beacon = new Beacon
                     {
                         Id1 = Guid.Parse("39ed98ff-2900-441a-802f-9c398fc199d2"),
                         Id2 = 0,
                         Id3 = 0,
+                    },
+                    Cons = new List<string>
+                    {
+                        "Timing belt needs change!(Est. 7.800 kr)",
                     }
                 },
                 new Car
@@ -35,6 +39,9 @@ namespace WebApi.Data
                         Id1 = Guid.Parse("a7ae2eb7-1f00-4168-b99b-a749bac1ca64"),
                         Id2 = 1,
                         Id3 = 2,
+                    },
+                    Cons = new List<string>
+                    {
                     }
                 },
                 new Car
@@ -48,6 +55,10 @@ namespace WebApi.Data
                         Id1 = Guid.Parse("f7826da6-4fa2-4e98-8024-bc5b71e0893e"),
                         Id2 = 3173,
                         Id3 = 28060,
+                    },
+                    Cons = new List<string>
+                    {
+                        ""
                     }
                 },
                 new Car
@@ -61,7 +72,12 @@ namespace WebApi.Data
                         Id1 = Guid.Parse("b9407f30-f5f8-466e-aff9-25556b57fe6d"),
                         Id2 = 29902,
                         Id3 = 48895,
+                    },
+                    Cons = new List<string>
+                    {
+                        "Variant has low userrating"
                     }
+
                 },
                 new Car
                 {
