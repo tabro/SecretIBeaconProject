@@ -14,7 +14,8 @@ namespace WebApi.Controllers
         [Route("Beacon")]
         public IEnumerable<Car> Post(IEnumerable<Beacon> data)
         {
-            return new GetAllCars().Get(); //.Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
+            data = data ?? new List<Beacon>();
+            return new GetAllCars().Get().Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
         }
 
         [HttpGet]
