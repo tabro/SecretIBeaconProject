@@ -3,17 +3,17 @@ package com.example.lsrensen.beaconapp.rest.models;
 /**
  * Created by mlorenzen on 22-05-2015.
  */
-public class Beacon {
+public class BeaconDto {
     private String id1;
 
     private int id2;
     private int id3;
 
-    public Beacon() {
+    public BeaconDto() {
 
     }
 
-    public Beacon(String id1, int id2, int id3) {
+    public BeaconDto(String id1, int id2, int id3) {
         this.id1 = id1;
         this.id2 = id2;
         this.id3 = id3;
@@ -46,9 +46,9 @@ public class Beacon {
     @Override
     public boolean equals(Object o) {
         if(o == null) return false;
-        if(!(o instanceof Beacon)) return false;
+        if(!(o instanceof BeaconDto)) return false;
 
-        Beacon other = (Beacon)o;
+        BeaconDto other = (BeaconDto)o;
         return id1 != null && id1.equals(other.id1) && id2 == other.id2 && id3 == other.id3;
     }
 }

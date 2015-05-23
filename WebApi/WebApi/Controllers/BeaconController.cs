@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using WebApi.Data;
 
 namespace WebApi.Controllers
 {
@@ -12,35 +13,7 @@ namespace WebApi.Controllers
         [Route("Beacon")]
         public IEnumerable<Car> Post(IEnumerable<Beacon> data)
         {
-            return new List<Car>
-            {
-                new Car
-                {
-                    Make = "Audi",
-                    Model = "R8",
-                    Image = "http://vignette4.wikia.nocookie.net/killbill/images/7/7c/Pussy-wagon-uma.jpg/revision/latest?cb=20110428111659",
-                    Price = "Cheap for you my friend",
-                    Beacon = new Beacon()
-                    {
-                        Id1 = Guid.NewGuid(),
-                        Id2 = 1,
-                        Id3 = 1,
-                    }
-                },
-                new Car
-                {
-                    Make = "Bmw",
-                    Model = "520i",
-                    Price = "100.000",
-                    Image = "http://www.lamarihuana.com/wp-content/uploads/2012/05/funny-aeroplane-car.jpg",
-                    Beacon = new Beacon()
-                    {
-                        Id1 = Guid.NewGuid(),
-                        Id2 = 1,
-                        Id3 = 2,
-                    }
-                }
-            };
+            return new GetAllCars().Get();
         }
 
         [HttpGet]
