@@ -14,7 +14,7 @@ namespace WebApi.Controllers
         [Route("Beacon")]
         public IEnumerable<Car> Post(IEnumerable<Beacon> data)
         {
-            return new GetAllCars().Get().Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
+            return new GetAllCars().Get(); //.Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
         }
 
         [HttpGet]
@@ -51,6 +51,7 @@ namespace WebApi.Controllers
         public Guid Id1 { get; set; }
         public int Id2 { get; set; }
         public int Id3 { get; set; }
+        public double Range { get; set; }
 
         public override bool Equals(object obj)
         {
