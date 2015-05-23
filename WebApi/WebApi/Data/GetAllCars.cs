@@ -31,6 +31,13 @@ namespace WebApi.Data
                     Pros = new List<string>
                     {
                         "Low cost of maintenance"  
+                    },
+                    CarOffer = new CarOffer
+                    {
+                        LoanPayment = 2000,
+                        LoanDownPayment = 15000,
+                        LeasePayment = 1000,
+                        LeaseDownPayment = 10000
                     }
                 },
                 new Car
@@ -52,6 +59,13 @@ namespace WebApi.Data
                     Pros = new List<string>
                     {
                         "Only 1 registered prior owner in 'National Motor Register'"  
+                    },
+                    CarOffer = new CarOffer
+                    {
+                        LoanPayment = 2500,
+                        LoanDownPayment = 20000,
+                        LeasePayment = 1500,
+                        LeaseDownPayment = 15000
                     }
                 },
                 //new Car

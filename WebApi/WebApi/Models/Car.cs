@@ -16,5 +16,7 @@ namespace WebApi.Models
         public Beacon Beacon { get; set; }
         public List<string> Cons { get; set; }
         public List<string> Pros { get; set; }
+
+        public CarOffer CarOffer { get; set; }
     }
 }
