@@ -1,4 +1,5 @@
-﻿using WebApi.Controllers;
+﻿using System.Collections.Generic;
+using WebApi.Controllers;
 
 namespace WebApi.Models
 {
@@ -13,5 +14,7 @@ namespace WebApi.Models
         public string Image { get; set; }
 
         public Beacon Beacon { get; set; }
+        public List<string> Cons { get; set; }
+        public List<string> Pros { get; set; }
     }
 }
