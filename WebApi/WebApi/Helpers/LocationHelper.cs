@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace WebApi.Helpers
+﻿namespace WebApi.Helpers
 {
+    using System;
+
     public class LocationHelper
     {
         public struct PrecisePoint
@@ -30,6 +27,7 @@ namespace WebApi.Helpers
             //y2 er en anden måling af y for at nedsætte fejlmargen.
             var y2 = (z - 2 * x * (position3.X - position2.X)) / (2 * (position3.Y - position2.Y));
 
+            //brug gennemsnittet af y og y2 som den nye y.
             y = (y + y2) / 2;
 
             return new PrecisePoint()
