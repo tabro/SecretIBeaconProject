@@ -47,33 +47,34 @@ namespace WebApi.Data
                     },
                     Cons = new List<string>
                     {
+                        "Variant has low userrating"
                     },
                     Pros = new List<string>
                     {
                         "Only 1 registered prior owner in 'National Motor Register'"  
                     }
                 },
-                new Car
-                {
-                    Make = "Tesla",
-                    Model = "P85D",
-                    Price = "100.000",
-                    Image = "https://latestmsgs.files.wordpress.com/2010/09/funny-car_1024x768.jpg",
-                    Beacon = new Beacon()
-                    {
-                        Id1 = Guid.Parse("f7826da6-4fa2-4e98-8024-bc5b71e0893e"),
-                        Id2 = 3173,
-                        Id3 = 28060,
-                    },
-                    Cons = new List<string>
-                    {
-                        ""
-                    },
-                    Pros = new List<string>
-                    {
-                        ""
-                    }
-                },
+                //new Car
+                //{
+                //    Make = "Tesla",
+                //    Model = "P85D",
+                //    Price = "100.000",
+                //    Image = "https://latestmsgs.files.wordpress.com/2010/09/funny-car_1024x768.jpg",
+                //    Beacon = new Beacon()
+                //    {
+                //        Id1 = Guid.Parse("f7826da6-4fa2-4e98-8024-bc5b71e0893e"),
+                //        Id2 = 3173,
+                //        Id3 = 28060,
+                //    },
+                //    Cons = new List<string>
+                //    {
+                //        ""
+                //    },
+                //    Pros = new List<string>
+                //    {
+                //        ""
+                //    }
+                //},
                 //new Car
                 //{
                 //    Make = "Bmw",
