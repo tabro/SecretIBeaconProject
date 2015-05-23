@@ -16,14 +16,14 @@ namespace WebApi.Controllers
         {
             data = data ?? new List<Beacon>();
 
-            data = data.Where(b => b.Range <= 5);
+            data = data.Where(b => b.Range <= 3);
 
             var filteredCars = new GetAllCars().Get().Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
 
             var result = new List<Car>();
             foreach (var d in data.OrderBy(b => b.Range))
             {
-                var carOrDefault = filteredCars.Where(c => c.Beacon.Equals(d)).SingleOrDefault();
+                var carOrDefault = filteredCars.SingleOrDefault(c => c.Beacon.Equals(d));
                 if(carOrDefault != null)
                     result.Add(carOrDefault);
             }
