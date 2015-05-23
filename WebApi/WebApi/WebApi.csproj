@@ -86,6 +86,7 @@
     <Compile Include="Controllers\BeaconController.cs" />
     <Compile Include="Controllers\DealerController.cs" />
     <Compile Include="Controllers\LoanOfferController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Data\GetAllCars.cs" />
     <Compile Include="Data\GetUsers.cs" />
     <Compile Include="Global.asax.cs">
