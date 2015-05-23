@@ -85,6 +85,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BeaconController.cs" />
     <Compile Include="Controllers\LoanOfferController.cs" />
+    <Compile Include="Data\GetAllCars.cs" />
     <Compile Include="Data\GetUsers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
