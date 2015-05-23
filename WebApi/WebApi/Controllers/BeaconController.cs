@@ -15,7 +15,20 @@ namespace WebApi.Controllers
         public IEnumerable<Car> Post(IEnumerable<Beacon> data)
         {
             data = data ?? new List<Beacon>();
-            return new GetAllCars().Get().Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
+
+            data = data.Where(b => b.Range <= 5);
+
+            var filteredCars = new GetAllCars().Get().Where(c => data.Any(b => b.Equals(c.Beacon))).ToList();
+
+            var result = new List<Car>();
+            foreach (var d in data.OrderBy(b => b.Range))
+            {
+                var carOrDefault = filteredCars.Where(c => c.Beacon.Equals(d)).SingleOrDefault();
+                if(carOrDefault != null)
+                    result.Add(carOrDefault);
+            }
+
+            return result;
         }
 
         [HttpGet]
