@@ -25,7 +25,7 @@ namespace WebApi.Data
                     },
                     Cons = new List<string>
                     {
-                        "Timing belt needs change!(Est. 7.800 kr)",
+                        "Timing belt needs change! (Est. 7.800 kr)",
                         "Diesel is not recommended with your drive pattern",
                         "Increased fuel cost compared to currect 'Volvo Amazone' (Est. 537 kr/month)"
                     },
