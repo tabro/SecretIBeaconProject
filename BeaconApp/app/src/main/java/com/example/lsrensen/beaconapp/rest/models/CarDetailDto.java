@@ -3,7 +3,7 @@ package com.example.lsrensen.beaconapp.rest.models;
 /**
  * Created by mlorenzen on 23-05-2015.
  */
-public class Car {
+public class CarDetailDto {
     private String fuelType;
     private String kml;
     private String financeOffer;
