@@ -106,6 +106,7 @@
                     android:layout_below="@id/priceHeader"
                     android:textStyle="normal"
                     android:layout_margin="0dip"
+                    android:textSize="25dip"
                     android:text="Kr. 200.000,-"
                     style="@style/Header"
                     />
