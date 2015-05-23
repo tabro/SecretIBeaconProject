@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.lsrensen.beaconapp.R;
 import com.example.lsrensen.beaconapp.rest.models.CarDto;
+import com.example.lsrensen.beaconapp.rest.models.ProsConsDto;
 import com.example.lsrensen.beaconapp.ui.helpers.DownloadImageTask;
 
 import java.util.ArrayList;
@@ -18,13 +19,11 @@ import java.util.ArrayList;
 public class ProsConsAdapter extends BaseAdapter
 {
     final Handler mHandler = new Handler();
-    ArrayList<String> items = new ArrayList<String>();
+    ArrayList<ProsConsDto> items = new ArrayList<ProsConsDto>();
     private Context context;
-    private boolean isPros;
 
-    public ProsConsAdapter(Context context, boolean isPros) {
+    public ProsConsAdapter(Context context) {
         this.context = context;
-        this.isPros = isPros;
     }
 
     @Override
@@ -50,10 +49,10 @@ public class ProsConsAdapter extends BaseAdapter
         TextView description = (TextView) rowView.findViewById(R.id.description);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.statusImage);
 
-        String desciption = (String)getItem(position);
-        description.setText(desciption);
+        ProsConsDto prosCons = (ProsConsDto)getItem(position);
+        description.setText(prosCons.getDescription());
 
-        if(isPros)
+        if(prosCons.isPros())
             imageView.setImageResource(R.drawable.ok);
         else
             imageView.setImageResource(R.drawable.notok);
@@ -61,14 +60,23 @@ public class ProsConsAdapter extends BaseAdapter
         return rowView;
     }
 
-    public void setDataFromAnyThread(final ArrayList<String> prosOrCons) {
-        // Enqueue work on mHandler to change the data on
-        // the main thread.
+    public void setDataFromAnyThread(final ArrayList<String> pros, final ArrayList<String> cons) {
+        final ArrayList<ProsConsDto> newItems = new ArrayList<>();
+
+        for(String pro : pros){
+            ProsConsDto prosDto = new ProsConsDto(pro, true);
+            newItems.add(prosDto);
+        }
+
+        for(String con : cons){
+            ProsConsDto consDto = new ProsConsDto(con, false);
+            newItems.add(consDto);
+        }
+
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                if(prosOrCons != null)
-                    items = prosOrCons;
+                items = newItems;
                 notifyDataSetChanged();
             }
         });
