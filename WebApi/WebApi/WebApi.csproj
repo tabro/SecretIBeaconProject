@@ -84,6 +84,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BeaconController.cs" />
+    <Compile Include="Controllers\DealerController.cs" />
     <Compile Include="Controllers\LoanOfferController.cs" />
     <Compile Include="Data\GetAllCars.cs" />
     <Compile Include="Data\GetUsers.cs" />
@@ -91,6 +92,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Scripts\0001 CreateSchema.sql" />
   </ItemGroup>
