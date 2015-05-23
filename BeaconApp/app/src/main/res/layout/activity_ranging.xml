@@ -11,83 +11,92 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:background="@drawable/border"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="5dip">
-
-            <ImageView
-                android:id="@+id/carImage"
-                android:layout_width="match_parent"
-                android:layout_height="100dp" />
-
-            <RelativeLayout
-                android:id="@+id/carDataView"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/carImage">
-
-                <TextView
-                    android:id="@+id/makeAndModel"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="Audi A4"
-                    style="@style/Header"/>
-
-                <TextView
-                    android:id="@+id/variant"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-
-                    android:layout_below="@id/makeAndModel"
-                    android:gravity="center_vertical"
-                    android:text="2.0 station car, 245 hk"
-                    style="@style/Text"/>
-
-                <TextView
-                    android:id="@+id/fuelEconomy"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-
-                    android:layout_below="@id/variant"
-                    android:gravity="center_vertical"
-                    android:text="31 km/liter"
-                    style="@style/Text" />
-
-                <TextView
-                    android:id="@+id/milage"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/fuelEconomy"
-                    android:gravity="center_vertical"
-                    android:text="55.000 kørte kilometer"
-                    style="@style/Text" />
-
-            </RelativeLayout>
+            android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/prosConsList"
+                android:background="@drawable/upperhalf"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/carDataView"
                 android:orientation="vertical"
-                />
+                android:padding="20dip">
+
+                <ImageView
+                    android:id="@+id/carImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:scaleType="centerCrop" />
+
+                <RelativeLayout
+                    android:id="@+id/carDataView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/carImage">
+
+                    <TextView
+                        android:id="@+id/makeAndModel"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:text="Audi A4"
+                        style="@style/Header"/>
+
+                    <TextView
+                        android:id="@+id/variant"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@id/makeAndModel"
+                        android:gravity="center_vertical"
+                        android:text="2.0 station car, 245 hk"
+                        style="@style/Text"/>
+
+                    <TextView
+                        android:id="@+id/fuelEconomy"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_below="@id/variant"
+                        android:gravity="center_vertical"
+                        android:text="31 km/liter"
+                        style="@style/Text" />
+
+                    <TextView
+                        android:id="@+id/milage"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fuelEconomy"
+                        android:gravity="center_vertical"
+                        android:text="55.000 kørte kilometer"
+                        style="@style/Text" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/prosConsList"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/carDataView"
+                    android:orientation="vertical"
+                    />
+            </LinearLayout>
 
             <RelativeLayout
                 android:layout_below="@id/prosConsList"
                 android:layout_width="fill_parent"
                 android:background="@drawable/lowerhalf"
                 android:clipToPadding="false"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:padding="20dip">
 
                 <TextView
                     android:id="@+id/priceHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="0dip"
                     android:text="Bilens pris"
-                    android:layout_marginBottom="0dip"
+                    android:textSize="18dip"
                     style="@style/Header"/>
 
                 <TextView
@@ -95,13 +104,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/priceHeader"
-                    android:layout_marginTop="0dip"
                     android:textStyle="normal"
-                    android:text="kr. 200.000"
+                    android:layout_margin="0dip"
+                    android:text="Kr. 200.000,-"
                     style="@style/Header"
                     />
 
             </RelativeLayout>
+
         </LinearLayout>
     </ScrollView>
 
