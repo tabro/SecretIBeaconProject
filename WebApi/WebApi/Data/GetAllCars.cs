@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using WebApi.Controllers;
 using WebApi.Models;
 
@@ -43,7 +42,7 @@ namespace WebApi.Data
                     Make = "Bmw",
                     Model = "520i",
                     Price = "100.000",
-                    Image = "http://www.lamarihuana.com/wp-content/uploads/2012/05/funny-aeroplane-car.jpg",
+                    Image = "https://latestmsgs.files.wordpress.com/2010/09/funny-car_1024x768.jpg",
                     Beacon = new Beacon()
                     {
                         Id1 = Guid.Parse("f7826da6-4fa2-4e98-8024-bc5b71e0893e"),
@@ -82,7 +81,7 @@ namespace WebApi.Data
                     Make = "Bmw",
                     Model = "520i",
                     Price = "100.000",
-                    Image = "http://funnystack.com/wp-content/uploads/2015/01/Funny-Car-34.jpg",
+                    Image = "http://www.topcarpicture.com/wp-content/uploads/2013/08/funny-cars-pictures.jpg",
                     Beacon = new Beacon()
                     {
                         Id1 = Guid.Parse("f7826da6-4fa2-4e98-8024-bc5b71e0893e"),
@@ -108,7 +107,7 @@ namespace WebApi.Data
                     Make = "Bmw",
                     Model = "520i",
                     Price = "100.000",
-                    Image = "http://www.lamarihuana.com/wp-content/uploads/2012/05/funny-aeroplane-car.jpg",
+                    Image = "http://funnystack.com/wp-content/uploads/2014/04/Funny-Car-Graphics-152.jpg",
                     Beacon = new Beacon()
                     {
                         Id1 = Guid.Parse("b9407f30-f5f8-466e-aff9-25556b57fe6d"),
