@@ -11,7 +11,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,7 +36,7 @@ import org.altbeacon.beacon.Region;
 public class RangingActivity extends Activity implements BeaconConsumer {
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private ListView prosConsView;
+    private LinearLayout prosConsView;
     private ImageView image;
     private TextView makeAndModelTextView;
     private TextView priceTextView;
@@ -52,8 +56,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         priceTextView = (TextView)findViewById(R.id.price);
         image = (ImageView)findViewById(R.id.carImage);
         prosConsAdapter = new ProsConsAdapter(this);
-        prosConsView = (ListView) findViewById(R.id.prosConsList);
-        prosConsView.setAdapter(prosConsAdapter);
+        prosConsView = (LinearLayout) findViewById(R.id.prosConsList);
         handler = new Handler();
     }
 
@@ -86,10 +89,11 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                     String json = gson.toJson(mappedBeacons);
                     String carsJson = HttpHelper.readURL("http://ibeaconisdabomb.azurewebsites.net/Beacon", json, "POST");
                     Log.e("test", json);
-                    Type listType = new TypeToken<ArrayList<CarDto>>(){}.getType();
+                    Type listType = new TypeToken<ArrayList<CarDto>>() {
+                    }.getType();
                     ArrayList<CarDto> cars = gson.fromJson(carsJson, listType);
 
-                    if(cars.size() == 0)
+                    if (cars.size() == 0)
                         return;
 
                     final CarDto closestCar = cars.get(0);
@@ -103,7 +107,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                         }
                     });
 
-                    prosConsAdapter.setDataFromAnyThread(closestCar.getPros(), closestCar.getCons());
+                    prosConsAdapter.setDataFromAnyThread(closestCar.getPros(), closestCar.getCons(),prosConsView );
                 } catch (
                         IOException e
                         ) {

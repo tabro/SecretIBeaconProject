@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.lsrensen.beaconapp.R;
@@ -60,7 +61,7 @@ public class ProsConsAdapter extends BaseAdapter
         return rowView;
     }
 
-    public void setDataFromAnyThread(final ArrayList<String> pros, final ArrayList<String> cons) {
+    public void setDataFromAnyThread(final ArrayList<String> pros, final ArrayList<String> cons, final LinearLayout prosConsView) {
         final ArrayList<ProsConsDto> newItems = new ArrayList<>();
 
         for(String pro : pros){
@@ -77,7 +78,11 @@ public class ProsConsAdapter extends BaseAdapter
             @Override
             public void run() {
                 items = newItems;
-                notifyDataSetChanged();
+                prosConsView.removeAllViews();
+                for (int i = 0; i < getCount(); i++) {
+                    View view = getView(i, null, prosConsView);
+                    prosConsView.addView(view);
+                }
             }
         });
     }
