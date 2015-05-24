@@ -10,15 +10,10 @@ public class CarDto {
     private BeaconDto beacon;
     private ArrayList<String> cons;
     private ArrayList<String> pros;
+    private CarFinanceDto carFinance;
+    private CarLeaseDto carLease;
 
     public CarDto(){
-    }
-
-    public CarDto(String image, String make, String model, String price) {
-        this.image = image;
-        this.make = make;
-        this.model = model;
-        this.price = price;
     }
 
     public String getImage() {
@@ -75,5 +70,21 @@ public class CarDto {
 
     public void setPros(ArrayList<String> pros) {
         this.pros = pros;
+    }
+
+    public CarFinanceDto getCarFinance() {
+        return carFinance;
+    }
+
+    public void setCarFinance(CarFinanceDto carFinance) {
+        this.carFinance = carFinance;
+    }
+
+    public CarLeaseDto getCarLease() {
+        return carLease;
+    }
+
+    public void setCarLease(CarLeaseDto carLease) {
+        this.carLease = carLease;
     }
 }
