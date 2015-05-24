@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/statusImage"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
         android:layout_alignParentTop="true"
@@ -23,6 +23,6 @@
         android:singleLine="false"
         android:text="Low fuel efficiency"
         android:paddingBottom="3dp"
-        android:textSize="18sp" />
+        android:textSize="12sp" />
 
 </RelativeLayout> 

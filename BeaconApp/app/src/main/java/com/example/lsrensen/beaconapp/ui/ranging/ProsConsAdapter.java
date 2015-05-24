@@ -54,9 +54,9 @@ public class ProsConsAdapter extends BaseAdapter
         description.setText(prosCons.getDescription());
 
         if(prosCons.isPros())
-            imageView.setImageResource(R.drawable.ok);
+            imageView.setImageResource(R.drawable.okcircle);
         else
-            imageView.setImageResource(R.drawable.notok);
+            imageView.setImageResource(R.drawable.notokcircle);
 
         return rowView;
     }
