@@ -42,6 +42,8 @@ public class RangingActivity extends Activity implements BeaconConsumer {
     private TextView priceTextView;
     private ProsConsAdapter prosConsAdapter;
     private Handler handler;
+    private TextView financePriceTextView;
+    private TextView leasingPriceTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,8 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         image = (ImageView)findViewById(R.id.carImage);
         prosConsAdapter = new ProsConsAdapter(this);
         prosConsView = (LinearLayout) findViewById(R.id.prosConsList);
+        leasingPriceTextView = (TextView)findViewById(R.id.leasingPrice);
+        financePriceTextView = (TextView)findViewById(R.id.financePrice);
         handler = new Handler();
     }
 
@@ -104,6 +108,8 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                         public void run() {
                             makeAndModelTextView.setText(closestCar.getMake() + " " + closestCar.getModel());
                             priceTextView.setText("Kr. " + closestCar.getPrice() + ",-");
+                            financePriceTextView.setText("Kr. " + closestCar.getCarFinance().getMonthlyPayment() + ",-");
+                            leasingPriceTextView.setText("Kr. " + closestCar.getCarLease().getMonthlyPayment() + ",-");
                         }
                     });
 
