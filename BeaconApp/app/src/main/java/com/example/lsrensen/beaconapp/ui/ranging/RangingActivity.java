@@ -103,7 +103,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                         @Override
                         public void run() {
                             makeAndModelTextView.setText(closestCar.getMake() + " " + closestCar.getModel());
-                            priceTextView.setText(closestCar.getPrice());
+                            priceTextView.setText("Kr. " + closestCar.getPrice() + ",-");
                         }
                     });
 

@@ -90,7 +90,8 @@
                 android:background="@drawable/lowerhalf"
                 android:clipToPadding="false"
                 android:layout_height="wrap_content"
-                android:padding="20dip">
+                android:padding="20dip"
+                android:layout_marginBottom="40dip">
 
                 <TextView
                     android:id="@+id/priceHeader"
@@ -99,7 +100,7 @@
                     android:layout_margin="0dip"
                     android:text="Bilens pris"
                     android:textStyle="bold"
-                    android:textSize="18dip"
+                    android:textSize="16dip"
                     style="@style/Header"/>
 
                 <TextView
@@ -119,8 +120,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="1dip"
                     android:layout_below="@id/price"
-                    android:layout_marginTop="10dip"
-                    android:layout_marginBottom="10dip"
+                    android:layout_marginTop="20dip"
+                    android:layout_marginBottom="20dip"
                     android:background="#DDD" />
 
                 <TextView
@@ -131,7 +132,7 @@
                     android:layout_below="@id/hr"
                     android:text="Dine personlige månedlige udgifter"
                     android:textStyle="bold"
-                    android:textSize="18dip"
+                    android:textSize="16dip"
                     style="@style/Header"/>
 
                 <RelativeLayout
